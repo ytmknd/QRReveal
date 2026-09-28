@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fb">
+    <title>QRReveal</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js" defer></script>
+    <script src="i18n.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="app">
+      <header class="page-header">
+        <div class="brand-mark" aria-hidden="true">▦</div>
+        <div>
+          <p class="eyebrow" data-i18n="eyebrow">Check it straight from an image or PDF</p>
+          <h1>QRReveal</h1>
+          <p class="intro" data-i18n="intro">Reads QR codes in images and PDFs and shows what they contain.</p>
+        </div>
+      </header>
+
+      <section class="card upload-card" aria-labelledby="upload-heading">
+        <div class="section-heading">
+          <span class="step">01</span>
+          <h2 id="upload-heading" data-i18n="uploadHeading">Add an image or PDF</h2>
+        </div>
+        <div id="drop-zone" class="drop-zone" tabindex="0" role="button" aria-label="Drop an image or PDF, or choose a file" data-i18n-aria-label="dropZoneLabel">
+          <div class="upload-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none"><rect x="5" y="8" width="38" height="32" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="19" r="3" fill="currentColor"/><path d="m9 34 10-10 7 7 6-6 7 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <p class="drop-title" data-i18n="dropTitle">Drag and drop an image or PDF here</p>
+          <p class="drop-subtitle" data-i18n="dropSubtitle">or paste an image or PDF (Ctrl+V / ⌘+V)</p>
+          <span class="choose-button" aria-hidden="true" data-i18n="chooseFile">Choose file</span>
+          <input id="file-input" type="file" accept="image/*,.png,.jpg,.jpeg,.gif,.webp,.bmp,application/pdf,.pdf" aria-label="Choose file" data-i18n-aria-label="chooseFile">
+        </div>
+        <p class="privacy-note"><span aria-hidden="true">●</span> <span data-i18n="privacyNote">Images and PDFs are processed on this device and never uploaded.</span></p>
+        <p id="status" class="status" role="status" aria-live="polite" hidden></p>
+      </section>
+
+      <section id="result-section" class="card result-card" aria-labelledby="result-heading" hidden>
+        <div class="section-heading">
+          <span class="step">02</span>
+          <h2 id="result-heading" data-i18n="resultHeading">Result</h2>
+        </div>
+        <div class="result-grid">
+          <div class="preview-panel">
+            <p class="field-label" data-i18n="previewLabel">Preview</p>
+            <div class="canvas-wrap"><canvas id="preview-canvas" aria-label="The loaded image or PDF page and the location of the detected QR code" data-i18n-aria-label="canvasLabel"></canvas></div>
+            <p id="file-name" class="file-name"></p>
+          </div>
+          <div class="content-panel">
+            <p class="field-label" data-i18n="contentLabel">QR code content</p>
+            <div id="decoded-content" class="decoded-content"></div>
+            <p id="content-note" class="content-note"></p>
+            <button id="copy-button" class="copy-button" type="button" hidden data-i18n="copy">Copy content</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
