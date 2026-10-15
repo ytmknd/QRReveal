@@ -4,6 +4,8 @@ English | [日本語](README.ja.md)
 
 QRReveal is a static web app that reads QR codes in images and PDFs and shows what they contain — right in your browser.
 
+**Try it now:** https://ytmknd.github.io/QRReveal/
+
 ## Features
 
 - **Three ways to load an image or PDF:** drag and drop, file picker, or paste a file from the clipboard (Ctrl+V / ⌘+V).
